@@ -16,6 +16,16 @@ android {
         versionName = "1.0"
     }
 
+    signingConfigs {
+        getByName("debug") {
+            // Fixed key so every new build installs over the previous one.
+            storeFile = file("tvhome.keystore")
+            storePassword = "tvhome123"
+            keyAlias = "tvhome"
+            keyPassword = "tvhome123"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
